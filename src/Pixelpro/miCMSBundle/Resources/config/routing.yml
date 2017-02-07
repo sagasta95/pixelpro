@@ -1,0 +1,17 @@
+pixelpromi_cms_admin_usuario:
+    resource: "@PixelpromiCMSBundle/Resources/config/routing/usuario.yml"
+    prefix:   /admin/usuario
+
+pixelpromi_cms_homepage:
+    path:     /
+    defaults: { _controller: PixelpromiCMSBundle:Default:index }
+
+login:
+    path: /login
+    defaults: { _controller: PixelpromiCMSBundle:Security:login }
+    
+login_check:
+    path: /login_check
+    
+logout:
+    path: /logout

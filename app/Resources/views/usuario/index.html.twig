@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="jumbotron">
+        <div class="container">
+            <h2>Lista de Usuarios</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Username</th>
+                        <th>Password</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for usuario in usuarios %}
+                        <tr>
+                            <td><a href="{{ path('admin_user_show', { 'id': usuario.id }) }}">{{ usuario.id }}</a></td>
+                            <td>{{ usuario.username }}</td>
+                            <td>{{ usuario.password|slice(0,18)}}</td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <a href="{{ path('admin_user_show', { 'id': usuario.id }) }}">show</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('admin_user_edit', { 'id': usuario.id }) }}">edit</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <ul>
+                <li>
+                    <a href="{{ path('admin_user_new') }}">Create a new usuario</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
